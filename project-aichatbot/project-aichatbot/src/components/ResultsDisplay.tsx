@@ -30,31 +30,31 @@ export default function ResultsDisplay({ data, query }: ResultsDisplayProps) {
 
   return (
     <div className="w-full max-w-5xl mx-auto space-y-6 animate-fadeIn">
-      <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 border border-blue-100">
+      <div className="bg-gradient-to-br from-blue-500/20 to-emerald-500/20 backdrop-blur-lg rounded-2xl p-6 border border-white/30 shadow-xl">
         <div className="flex items-start gap-3 mb-3">
-          <div className="w-1 h-full bg-blue-500 rounded-full" />
+          <div className="w-1 h-full bg-blue-400 rounded-full shadow-lg" />
           <div className="flex-1">
-            <p className="text-sm font-medium text-blue-800 mb-2">Your Question</p>
-            <p className="text-slate-700">{query}</p>
+            <p className="text-sm font-medium text-blue-300 mb-2">Your Question</p>
+            <p className="text-white">{query}</p>
           </div>
         </div>
       </div>
 
-      <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-        <h3 className="text-lg font-semibold text-slate-800 mb-3">
+      <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 shadow-xl border border-white/20">
+        <h3 className="text-lg font-semibold text-white mb-3">
           Simulation Summary
         </h3>
-        <p className="text-slate-600 leading-relaxed">{data.summary}</p>
+        <p className="text-slate-200 leading-relaxed">{data.summary}</p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {data.metrics.map((metric, idx) => (
           <div
             key={idx}
-            className="bg-white rounded-xl p-5 shadow-sm border border-slate-100 hover:shadow-md transition-shadow"
+            className="bg-white/10 backdrop-blur-lg rounded-xl p-5 shadow-lg border border-white/30 hover:shadow-xl hover:bg-white/15 transition-all"
           >
             <div className="flex items-center justify-between mb-2">
-              <p className="text-sm text-slate-500 font-medium">{metric.label}</p>
+              <p className="text-sm text-slate-300 font-medium">{metric.label}</p>
               {getTrendIcon(metric.change)}
             </div>
             {/* <p className="text-2xl font-bold text-slate-800 mb-1">
@@ -68,12 +68,12 @@ export default function ResultsDisplay({ data, query }: ResultsDisplayProps) {
           </div>
         ))}
       </div>
-      <div>
-        {interpretMarketShift(data).summary}
+      <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 shadow-xl border border-white/20">
+        <p className="text-slate-200 leading-relaxed">{interpretMarketShift(data).summary}</p>
       </div>
 
-      <div className='mt-2'>
-        My Top Competitors: {total_competitors}
+      <div className="bg-white/10 backdrop-blur-lg rounded-xl p-4 shadow-lg border border-white/20">
+        <p className="text-slate-200 font-medium">My Top Competitors: <span className="text-blue-300 font-bold">{total_competitors}</span></p>
       </div>
       <div className='mt-2'>
         <TopCompetitorsTable />

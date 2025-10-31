@@ -34,8 +34,8 @@ const TopCompetitorsTable = () => {
   // };
 
   return (
-    <div className="card p-4 bg-white shadow-md rounded-2xl">
-      <h3 className="text-lg font-semibold mb-4 text-gray-800">
+    <div className="card p-4 bg-white/10 backdrop-blur-lg shadow-xl rounded-2xl border border-white/20">
+      <h3 className="text-lg font-semibold mb-4 text-white">
         Top 5 Competitors by Price per Kg
       </h3>
 

@@ -34,11 +34,11 @@ export default function FilterInputs() {
   const [selectedSKU, setSelectedSKU] = useState(null);
 
   return (
-    <div className="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-4">
 
       {/* ✅ Region */}
       <div className="flex flex-col gap-1">
-        <label className="text-sm font-medium text-gray-700">Region</label>
+        <label className="text-sm font-medium text-slate-200">Region</label>
         <Dropdown
           value={selectedRegion}
           options={region}
@@ -50,7 +50,7 @@ export default function FilterInputs() {
 
       {/* ✅ Segment */}
       <div className="flex flex-col gap-1">
-        <label className="text-sm font-medium text-gray-700">Segment</label>
+        <label className="text-sm font-medium text-slate-200">Segment</label>
         <Dropdown
           value={selectedSegment}
           options={segment}
@@ -62,7 +62,7 @@ export default function FilterInputs() {
 
       {/* ✅ Flavor */}
       <div className="flex flex-col gap-1">
-        <label className="text-sm font-medium text-gray-700">Flavor</label>
+        <label className="text-sm font-medium text-slate-200">Flavor</label>
         <Dropdown
           value={selectedFlavor}
           options={flavor}
@@ -74,7 +74,7 @@ export default function FilterInputs() {
 
       {/* ✅ SKU */}
       <div className="flex flex-col gap-1">
-        <label className="text-sm font-medium text-gray-700">SKU</label>
+        <label className="text-sm font-medium text-slate-200">SKU</label>
         <Dropdown
           value={selectedSKU}
           options={skuList}

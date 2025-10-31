@@ -48,7 +48,7 @@ export default function SimulationInput({
 
   return (
     <div className="w-full max-w-5xl mx-auto">
-      <form onSubmit={handleSubmit} className="relative">
+      <form onSubmit={handleSubmit} className="relative bg-white/10 backdrop-blur-lg rounded-3xl p-6 border border-white/20 shadow-2xl">
         {/* ✅ PrimeReact Select Inputs */}
         <FilterInputs />
 
@@ -61,15 +61,15 @@ export default function SimulationInput({
           rows={3}
           disabled={isLoading}
           autoResize
-          className="w-full p-inputtext-lg border-2 border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200
-           px-6 py-4 pr-14 text-base rounded-2xl focus:outline-none transition-all resize-none"
+          className="w-full p-inputtext-lg border-2 border-white/30 focus:border-blue-400 focus:ring-2 focus:ring-blue-400/50 bg-white/95 backdrop-blur-sm
+           px-6 py-4 pr-14 text-base text-slate-800 rounded-2xl focus:outline-none transition-all resize-none shadow-lg"
         />
 
         {/* ✅ PrimeReact Button */}
         <Button
           type="submit"
           disabled={!query?.trim() || isLoading}
-          className="absolute right-3 bottom-3 !p-0 rounded-xl shadow-md"
+          className="absolute right-3 bottom-3 !p-0 rounded-xl shadow-lg bg-gradient-to-r from-blue-500 to-emerald-600 hover:from-blue-600 hover:to-emerald-700 border-0"
         >
           <div className="p-3 flex justify-center items-center">
             {isLoading ? (
@@ -83,7 +83,7 @@ export default function SimulationInput({
 
       {/* ✅ Suggested Example Queries */}
       <div className="mt-6">
-        <p className="text-sm font-medium text-slate-600 mb-3">
+        <p className="text-sm font-medium text-slate-200 mb-3">
           Try these examples:
         </p>
 
@@ -93,7 +93,7 @@ export default function SimulationInput({
               key={idx}
               disabled={isLoading}
               onClick={() => setQuery(example.label)}
-              className="text-xs px-4 py-2 bg-white border border-slate-200 text-left hover:bg-blue-50 hover:border-blue-400 rounded-lg shadow-sm disabled:opacity-50"
+              className="text-xs px-4 py-2 bg-white/20 backdrop-blur-sm border border-white/30 text-slate-100 text-left hover:bg-white/30 hover:border-blue-400 rounded-lg shadow-md disabled:opacity-50 transition-all"
             >
               {example.label}
             </Button>
