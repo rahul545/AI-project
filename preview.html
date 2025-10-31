@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Impact Simulator - Preview</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest"></script>
+    <style>
+        @keyframes blob {
+            0% {
+                transform: translate(0px, 0px) scale(1);
+            }
+            33% {
+                transform: translate(30px, -50px) scale(1.1);
+            }
+            66% {
+                transform: translate(-20px, 20px) scale(0.9);
+            }
+            100% {
+                transform: translate(0px, 0px) scale(1);
+            }
+        }
+
+        .animate-blob {
+            animation: blob 7s infinite;
+        }
+
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
+
+        .animation-delay-4000 {
+            animation-delay: 4s;
+        }
+
+        .bg-grid-pattern {
+            background-image:
+                linear-gradient(to right, rgb(148 163 184 / 0.1) 1px, transparent 1px),
+                linear-gradient(to bottom, rgb(148 163 184 / 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+    </style>
+</head>
+<body class="m-0 p-0">
+    <div class="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 relative overflow-hidden">
+        <!-- Grid Pattern Background -->
+        <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
+
+        <!-- Animated Blob Backgrounds -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-blue-500 rounded-full filter blur-3xl opacity-20 animate-pulse"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-emerald-500 rounded-full filter blur-3xl opacity-20 animate-pulse" style="animation-delay: 1s;"></div>
+
+        <!-- Main Content -->
+        <div class="container mx-auto px-4 py-8 max-w-7xl relative z-10">
+            <!-- Header -->
+            <header class="text-center mb-12">
+                <div class="flex items-center justify-center gap-3 mb-4">
+                    <div class="p-3 bg-gradient-to-br from-blue-400 to-emerald-500 rounded-2xl shadow-2xl border border-white/20">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                        </svg>
+                    </div>
+                    <h1 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 via-emerald-400 to-blue-300 bg-clip-text text-transparent drop-shadow-lg">
+                        Market Impact Simulator
+                    </h1>
+                </div>
+                <p class="text-slate-300 text-lg max-w-2xl mx-auto backdrop-blur-sm bg-white/10 py-3 px-6 rounded-xl border border-white/20 shadow-lg">
+                    Analyze price trends and macroeconomic factors with AI-powered market simulations
+                </p>
+            </header>
+
+            <div class="space-y-8">
+                <!-- Filter Section -->
+                <div class="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-4 bg-white/5 backdrop-blur-lg rounded-2xl border border-white/20">
+                    <div class="flex flex-col gap-2">
+                        <label class="text-sm font-medium text-slate-200">Region</label>
+                        <select class="px-4 py-2 rounded-lg bg-white/20 border border-white/30 text-white">
+                            <option>Select Region</option>
+                            <option>North Zone</option>
+                            <option>South Zone</option>
+                        </select>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label class="text-sm font-medium text-slate-200">Segment</label>
+                        <select class="px-4 py-2 rounded-lg bg-white/20 border border-white/30 text-white">
+                            <option>Select Segment</option>
+                            <option>GLUCOSE</option>
+                            <option>CREAM</option>
+                        </select>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label class="text-sm font-medium text-slate-200">Flavor</label>
+                        <select class="px-4 py-2 rounded-lg bg-white/20 border border-white/30 text-white">
+                            <option>Select Flavor</option>
+                            <option>MILK</option>
+                            <option>CHOCOLATE</option>
+                        </select>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label class="text-sm font-medium text-slate-200">SKU</label>
+                        <select class="px-4 py-2 rounded-lg bg-white/20 border border-white/30 text-white">
+                            <option>Select SKU</option>
+                            <option>100</option>
+                            <option>150</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Input Form -->
+                <div class="w-full max-w-5xl mx-auto">
+                    <form class="relative bg-white/10 backdrop-blur-lg rounded-3xl p-6 border border-white/20 shadow-2xl">
+                        <textarea
+                            class="w-full px-6 py-4 pr-14 text-base text-slate-800 rounded-2xl border-2 border-white/30 focus:border-blue-400 focus:ring-2 focus:ring-blue-400/50 bg-white/95 backdrop-blur-sm focus:outline-none transition-all resize-none shadow-lg"
+                            rows="3"
+                            placeholder="Ask a business question...&#10;(e.g., 'If I increase the price of Product X by 5%, how much market share will I lose?')">
+                        </textarea>
+                        <button class="absolute right-3 bottom-3 p-3 rounded-xl shadow-lg bg-gradient-to-r from-blue-500 to-emerald-600 hover:from-blue-600 hover:to-emerald-700 text-white">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                            </svg>
+                        </button>
+                    </form>
+
+                    <div class="mt-6">
+                        <p class="text-sm font-medium text-slate-200 mb-3">Try these examples:</p>
+                        <div class="flex flex-wrap gap-2">
+                            <button class="text-xs px-4 py-2 bg-white/20 backdrop-blur-sm border border-white/30 text-slate-100 hover:bg-white/30 hover:border-blue-400 rounded-lg shadow-md transition-all">
+                                Market Share Impact Analysis
+                            </button>
+                            <button class="text-xs px-4 py-2 bg-white/20 backdrop-blur-sm border border-white/30 text-slate-100 hover:bg-white/30 hover:border-blue-400 rounded-lg shadow-md transition-all">
+                                Price Elasticity Simulation
+                            </button>
+                            <button class="text-xs px-4 py-2 bg-white/20 backdrop-blur-sm border border-white/30 text-slate-100 hover:bg-white/30 hover:border-blue-400 rounded-lg shadow-md transition-all">
+                                Competitor Volume Prediction
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results Section (Example) -->
+                <div class="w-full max-w-5xl mx-auto space-y-6">
+                    <!-- Question Card -->
+                    <div class="bg-gradient-to-br from-blue-500/20 to-emerald-500/20 backdrop-blur-lg rounded-2xl p-6 border border-white/30 shadow-xl">
+                        <div class="flex items-start gap-3">
+                            <div class="w-1 h-full bg-blue-400 rounded-full shadow-lg"></div>
+                            <div class="flex-1">
+                                <p class="text-sm font-medium text-blue-300 mb-2">Your Question</p>
+                                <p class="text-white">If I increase the price of PARLE-G Glucose by 10%, how will this impact market share?</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Summary Card -->
+                    <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 shadow-xl border border-white/20">
+                        <h3 class="text-lg font-semibold text-white mb-3">Simulation Summary</h3>
+                        <p class="text-slate-200 leading-relaxed">Based on historical elasticity data and market dynamics, a 10% price increase would result in approximately 8.5% market share decline. This is driven by competitor repositioning and consumer price sensitivity in the glucose biscuits segment.</p>
+                    </div>
+
+                    <!-- Metrics Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="bg-white/10 backdrop-blur-lg rounded-xl p-5 shadow-lg border border-white/30 hover:shadow-xl hover:bg-white/15 transition-all">
+                            <div class="flex items-center justify-between mb-2">
+                                <p class="text-sm text-slate-300 font-medium">Market Share Change</p>
+                                <svg class="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17H3v-2h10v2zm0-4H3v-2h10v2zm0-4H3V7h10v2z" />
+                                </svg>
+                            </div>
+                            <p class="text-sm font-medium text-red-400">-8.5%</p>
+                        </div>
+
+                        <div class="bg-white/10 backdrop-blur-lg rounded-xl p-5 shadow-lg border border-white/30 hover:shadow-xl hover:bg-white/15 transition-all">
+                            <div class="flex items-center justify-between mb-2">
+                                <p class="text-sm text-slate-300 font-medium">Volume Impact</p>
+                                <svg class="w-4 h-4 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17H3v-2h10v2zm0-4H3v-2h10v2zm0-4H3V7h10v2z" />
+                                </svg>
+                            </div>
+                            <p class="text-sm font-medium text-red-400">-12.3%</p>
+                        </div>
+
+                        <div class="bg-white/10 backdrop-blur-lg rounded-xl p-5 shadow-lg border border-white/30 hover:shadow-xl hover:bg-white/15 transition-all">
+                            <div class="flex items-center justify-between mb-2">
+                                <p class="text-sm text-slate-300 font-medium">Revenue Impact</p>
+                                <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7H3v2h10V7zm0 4H3v2h10v-2zm0 4H3v2h10v-2z" />
+                                </svg>
+                            </div>
+                            <p class="text-sm font-medium text-green-400">+3.2%</p>
+                        </div>
+
+                        <div class="bg-white/10 backdrop-blur-lg rounded-xl p-5 shadow-lg border border-white/30 hover:shadow-xl hover:bg-white/15 transition-all">
+                            <div class="flex items-center justify-between mb-2">
+                                <p class="text-sm text-slate-300 font-medium">Competitor Response</p>
+                                <svg class="w-4 h-4 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17H3v-2h10v2zm0-4H3v-2h10v2zm0-4H3V7h10v2z" />
+                                </svg>
+                            </div>
+                            <p class="text-sm font-medium text-yellow-400">High</p>
+                        </div>
+                    </div>
+
+                    <!-- Competitors Card -->
+                    <div class="bg-white/10 backdrop-blur-lg rounded-xl p-4 shadow-lg border border-white/20">
+                        <p class="text-slate-200 font-medium">My Top Competitors: <span class="text-blue-300 font-bold">5</span></p>
+                    </div>
+
+                    <!-- Competitors Table -->
+                    <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-4 shadow-xl border border-white/20">
+                        <h3 class="text-lg font-semibold text-white mb-4">Top 5 Competitors by Price per Kg</h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead>
+                                    <tr class="border-b border-white/20">
+                                        <th class="text-left py-2 px-4 text-slate-200 font-semibold">Competitor</th>
+                                        <th class="text-left py-2 px-4 text-slate-200 font-semibold">Price per Kg (₹)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b border-white/10 hover:bg-white/5 transition-colors">
+                                        <td class="py-3 px-4 text-slate-100">Britannia Digestive</td>
+                                        <td class="py-3 px-4 text-slate-100">₹48.50</td>
+                                    </tr>
+                                    <tr class="border-b border-white/10 hover:bg-white/5 transition-colors">
+                                        <td class="py-3 px-4 text-slate-100">ITC Sunfeast</td>
+                                        <td class="py-3 px-4 text-slate-100">₹52.00</td>
+                                    </tr>
+                                    <tr class="border-b border-white/10 hover:bg-white/5 transition-colors">
+                                        <td class="py-3 px-4 text-slate-100">Mondelez Marie</td>
+                                        <td class="py-3 px-4 text-slate-100">₹55.75</td>
+                                    </tr>
+                                    <tr class="border-b border-white/10 hover:bg-white/5 transition-colors">
+                                        <td class="py-3 px-4 text-slate-100">Nestlé KitKat</td>
+                                        <td class="py-3 px-4 text-slate-100">₹58.25</td>
+                                    </tr>
+                                    <tr class="hover:bg-white/5 transition-colors">
+                                        <td class="py-3 px-4 text-slate-100">Campbell Biscuit</td>
+                                        <td class="py-3 px-4 text-slate-100">₹45.00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- CEM Summary -->
+                    <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 shadow-xl border border-white/20">
+                        <h2 class="text-xl font-semibold text-white mb-4">Consumer Elasticity Modifier Summary</h2>
+
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="text-slate-300 font-medium">CEM Score:</span>
+                            <span class="text-lg font-bold text-blue-300">0.847</span>
+                        </div>
+
+                        <p class="text-slate-200 bg-blue-500/20 p-3 rounded-lg border-l-4 border-blue-400 italic backdrop-blur-sm mb-6">
+                            This indicates moderate price elasticity. Consumers show 0.847 units of demand change for every 1% price increase.
+                        </p>
+
+                        <h3 class="text-lg font-semibold text-white mb-3">Top Contributors to CEM</h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead>
+                                    <tr class="border-b border-white/20">
+                                        <th class="text-left py-2 px-4 text-slate-200 font-semibold">Indicator</th>
+                                        <th class="text-center py-2 px-4 text-slate-200 font-semibold">Index</th>
+                                        <th class="text-center py-2 px-4 text-slate-200 font-semibold">Impact Weight</th>
+                                        <th class="text-center py-2 px-4 text-slate-200 font-semibold">Rank</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b border-white/10 hover:bg-white/5 transition-colors">
+                                        <td class="py-3 px-4 text-slate-100 font-medium">Income Level</td>
+                                        <td class="text-center py-3 px-4 text-slate-100">0.923</td>
+                                        <td class="text-center py-3 px-4 text-slate-100">0.156</td>
+                                        <td class="text-center py-3 px-4 text-slate-100">1</td>
+                                    </tr>
+                                    <tr class="border-b border-white/10 hover:bg-white/5 transition-colors">
+                                        <td class="py-3 px-4 text-slate-100 font-medium">Competition Intensity</td>
+                                        <td class="text-center py-3 px-4 text-slate-100">0.856</td>
+                                        <td class="text-center py-3 px-4 text-slate-100">0.142</td>
+                                        <td class="text-center py-3 px-4 text-slate-100">2</td>
+                                    </tr>
+                                    <tr class="hover:bg-white/5 transition-colors">
+                                        <td class="py-3 px-4 text-slate-100 font-medium">Brand Loyalty</td>
+                                        <td class="text-center py-3 px-4 text-slate-100">0.734</td>
+                                        <td class="text-center py-3 px-4 text-slate-100">0.098</td>
+                                        <td class="text-center py-3 px-4 text-slate-100">3</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
